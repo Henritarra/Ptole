@@ -42,6 +42,12 @@ p {
   font-size: 1.1rem;
 }
 
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px;
+}
+
 img {
   max-width: 500px;
   max-height: 500px;
@@ -56,7 +62,6 @@ img {
 }
 
 /* SHAPES */
-
 .front-page {
   position: relative;
   height: 100dvh;
@@ -66,9 +71,8 @@ img {
   position: absolute;
   inset: 0;
   background-color: #000000;
-  z-index: 1;
+  z-index: 2;
 }
-
 
 .shape1 {
   position: absolute;
@@ -84,52 +88,39 @@ img {
 
 .shape3 {
   position: absolute;
-  /* background: linear-gradient(to left, #d11905 5px, #000000 250px), linear-gradient(to top left, #d11905 5px, #000000 0px); */
   background: linear-gradient(to left, #690b01 0%, #000000 18%);
-  /* background: linear-gradient(to bottom, transparent, #690b01 20%); */
-  /* background-color: white; */
-  /* background-color: #8e0e00; */
   clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 84% 100% );
 }
-
-
-/* .shapes::before {
-  content: "";
-  position: absolute;
-  border-color: rgba(0, 0, 0, 0.963) ;
-  border-style: solid;
-  border-width: 25rem 20rem 20rem 12rem;
-  border-right-color: transparent;
-}
-
-.shapes::after {
-  content: "";
-  position: absolute;
-  border-style: solid;
-  border-width: 30rem 25rem 30rem 5rem;
-  left: 25rem;
-  border-color: transparent rgba(0, 0, 0, 0.965) transparent transparent;
-} */
 
 /* NAV BAR */
 
 nav {
-  position:relative;
+  /* position:relative; */
+  position: absolute;
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between; */
+  background: linear-gradient(to right, #8e0e00, #1f1c18);
+  /* background-color: var(--nav-background-color); */
+  padding: 20px 2% 20px 3%;
+  align-items: center;
+  /* z-index: 1; */
+}
+
+.nav-div {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(to right, #8e0e00, #1f1c18);
-  /* background-color: var(--nav-background-color); */
-  padding: 20px 2% 20px 5%;
   align-items: center;
-  /* z-index: -1; */
+  gap: 30px;
 }
 
 h1 {
   position: relative;
   z-index: 999;
-  font-size: 1.8rem;
+  font-size: 2.05rem;
   color: rgb(240, 238, 238);
-  letter-spacing: 0.8px;
+  letter-spacing: 0.7px;
 }
 
 nav a {
@@ -164,17 +155,17 @@ main {
 }
 
 .accent {
-  font-weight: bold;
+  font-weight: bolder;
+  font-size: 1.16rem;
 }
 
 .main-photo {
 display: block;
-
 /* THIS TWO PROPERTIES ARE WHAT ARE SAVING MY ASS.... */
 max-width: none;
 max-height: none;
-margin-left: -1.8%;
-height: 91dvh;
+/* margin-left: -0.5%; */
+height: 100dvh;
 width: 65%;
 object-fit: cover;
 }
@@ -189,17 +180,92 @@ object-fit: cover;
 
 /* CLASSICAL */
 
+.gradient {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.classic {
+  /* background: 
+    linear-gradient(to top right, transparent 91%, #690b01 100%),
+    linear-gradient(to top left, transparent 0%, black 30%),
+    linear-gradient(to bottom right, transparent 80%, white 90%),
+    linear-gradient(to bottom left, transparent 80%, white 50%); */
+    background: linear-gradient(to left, #690b01 0%, #000000 18%);
+    padding-top: 150px;
+  }
+
 .classical {
-  display: block;
-  background-color: yellow;
-  position: relative;
-  /* z-index: 3; */
+  display: flex;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  color: rgb(0, 0, 0);
+  border:30px solid rgba(153, 113, 27, 0.452);
+  background-color: rgba(254, 251, 198, 0.879);
+}
+
+.classical-img {
+  filter: brightness(80%);
+}
+
+/* WORLD MUSIC */
+
+.world {
+  background-color: rgba(171, 85, 32, 0.774);
+  /* padding-top: 60px;
+  padding-bottom: 40px; */
+}
+
+.world-music {
+  gap: 80px;
+  color: rgb(226, 225, 225);
+  padding-top: 80px;
+  padding-bottom: 40px;
+  /* color: rgb(195, 195, 195); */
+  /* border:20px solid rgba(22, 22, 22, 0.902); */
+  background-color: rgba(12, 12, 12, 0.5);
+}
+
+.world-music-img img {
+  max-height: 590px;
+}
+
+.video-world {
+  margin-top: 55px;
+}
+
+
+/* ROCK */
+.rock {
+  background-color: rgb(90, 85, 92);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: white;
+}
+/* EXPERIMENTAL */
+
+.experimental {
+  background-color: rgb(218, 215, 247);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: black;
 }
 
 /* Ûpcoming Concerts */
+.upcoming-concerts {
+  padding: 40px;
+  color: black;
+}
+.upcoming-concerts > h2 {
+  display: block;
+  font-size: 2.5rem;
+  text-align: center;
+}
 .upcoming-concerts > div {
   max-width: 800px;
 }
+
+
 
 .concert-box {
   display: flex;
@@ -214,10 +280,11 @@ object-fit: cover;
 .day {
   font-size: 2.25rem;
   margin-bottom: -15px;
-
+  text-align: center;
 }
 .month {
-  font-size: 1.15rem;
+  font-size: 1.17rem;
+  text-align: center;
 }
 
 .concert-description {

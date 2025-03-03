@@ -31,7 +31,7 @@ document.addEventListener("scroll", function() {
     if (scrollPosition >= 400) {
         let transyImg = 0 + ((scrollPosition - 400) / 400) * 50;
         classicImage.style.filter = `brightness(${Math.min(100, transyImg)}%)`;
-        backgroundClassic.style.paddingTop = `${Math.min(750, (150 + ((scrollPosition - 400) / 400) * 150))}px`;
+        backgroundClassic.style.paddingTop = `${Math.min(750, (50 + ((scrollPosition - 400) / 400) * 150))}px`;
         // classicImage.style.paddingTop = `900px`;
 
     }

@@ -45,12 +45,12 @@ p {
 h3 {
   font-size: 2rem;
   text-align: center;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
 }
 
 img {
   max-width: 500px;
-  max-height: 500px;
+  /* max-height: 500px; */
 }
 
 .separator {
@@ -214,7 +214,7 @@ object-fit: cover;
 .classical {
   display: flex;
   padding-top: 200px;
-  padding-bottom: 60px;
+  padding-bottom: 260px;
   color: black;
 }
 
@@ -222,6 +222,17 @@ object-fit: cover;
   filter: brightness(0%);
 }
 
+.classical-img img {
+  max-height: 695px;
+}
+
+.classical-text {
+  margin-top: -20px;
+}
+
+.video-classical {
+  margin-top: 30px;
+}
 
 /* WORLD MUSIC */
 .world {

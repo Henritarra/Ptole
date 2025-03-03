@@ -24,10 +24,15 @@ document.addEventListener("scroll", function() {
         const cor = 230;
         backgroundClassic.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
         shapeThree.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
+        shapeOne.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
+        shapeTwo.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
     }
 
     if (scrollPosition >= 400) {
         let transyImg = 0 + ((scrollPosition - 400) / 400) * 50;
         classicImage.style.filter = `brightness(${Math.min(100, transyImg)}%)`;
+        backgroundClassic.style.paddingTop = `${Math.min(750, (150 + ((scrollPosition - 400) / 400) * 150))}px`;
+        // classicImage.style.paddingTop = `900px`;
+
     }
 })

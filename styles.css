@@ -33,9 +33,9 @@ body {
   margin: 0 auto;
 }
 
-.videos {
+/* .videos {
   width: 560px;
-}
+} */
 
 p {
   max-width: 500px;
@@ -101,7 +101,7 @@ img {
   clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100% );
 } */
 
-
+/* ///////////////////////////////////////////// */
 /* NAV BAR */
 
 nav {
@@ -151,6 +151,7 @@ nav a:hover {
   background: linear-gradient(to right,rgba(134, 1, 1, 0.441), rgba(107, 0, 0, 0));
 }
 
+/* ///////////////////////////////////////////// */
 /* INICIO */
 main {
   position: relative;
@@ -188,7 +189,9 @@ object-fit: cover;
   border-radius: 5px 0 0 5px;
 }
 
+/* ///////////////////////////////////////////// */
 /* CLASSICAL */
+
 /* .gradient {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -230,10 +233,17 @@ object-fit: cover;
   margin-top: -20px;
 }
 
-.video-classical {
-  margin-top: 30px;
+.classical-text p {
+  text-align: justify;
+  margin: 0 auto;
 }
 
+.video-classical {
+  /* margin-top: 30px; */
+  margin: 30px auto 0 auto;
+  /* width: 200px; */
+}
+/* ///////////////////////////////////////////// */
 /* WORLD MUSIC */
 .world {
   background-color: rgba(171, 85, 32, 0.774);
@@ -252,12 +262,15 @@ object-fit: cover;
 .world-music-img img {
   max-height: 590px;
 }
-
+.world-music-text p {
+  text-align: justify;
+  margin: 0 auto;
+}
 .video-world {
-  margin-top: 55px;
+  margin-top: 65px;
 }
 
-
+/* ///////////////////////////////////////////// */
 /* ROCK */
 .rock {
   background-color: rgb(90, 85, 92);
@@ -266,7 +279,7 @@ object-fit: cover;
   color: white;
 }
 
-
+/* ///////////////////////////////////////////// */
 /* EXPERIMENTAL */
 .experimental {
   background-color: rgb(218, 215, 247);
@@ -275,8 +288,8 @@ object-fit: cover;
   color: black;
 }
 
-
-/* Ûpcoming Concerts */
+/* ///////////////////////////////////////////// */
+/* UPCOMING CONCERTS */
 .upcoming-concerts {
   padding: 40px;
   color: black;

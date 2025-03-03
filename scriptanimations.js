@@ -19,8 +19,8 @@ document.addEventListener("scroll", function() {
     
     if (scrollPosition >= 400) {
         let startWhite = 0;
-        let transy = (startWhite - 400 + scrollPosition / 1.8);
-        let transyPerc = 18 - ((scrollPosition - 400) / 400) * 18;
+        let transy = (startWhite - 400 + scrollPosition / 2.2);
+        let transyPerc = 18 - ((scrollPosition - 400) / 750) * 18;
         const cor = 230;
         backgroundClassic.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
         shapeThree.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
@@ -31,7 +31,7 @@ document.addEventListener("scroll", function() {
     if (scrollPosition >= 400) {
         let transyImg = 0 + ((scrollPosition - 400) / 400) * 50;
         classicImage.style.filter = `brightness(${Math.min(100, transyImg)}%)`;
-        backgroundClassic.style.paddingTop = `${Math.min(750, (50 + ((scrollPosition - 400) / 400) * 150))}px`;
+        backgroundClassic.style.paddingTop = `${Math.min(1050, (50 + ((scrollPosition - 400) / 400) * 160))}px`;
         // classicImage.style.paddingTop = `900px`;
 
     }

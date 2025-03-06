@@ -64,7 +64,7 @@ img {
 /* SHAPES */
 .front-page {
   position: relative;
-  height: 100dvh;
+  height: 100svh;
 }
 
 .shapes {
@@ -176,7 +176,7 @@ display: block;
 max-width: none;
 max-height: none;
 /* margin-left: -0.5%; */
-height: 100dvh;
+height: 100svh;
 width: 65%;
 object-fit: cover;
 }
@@ -230,7 +230,7 @@ object-fit: cover;
 }
 
 .classical-text {
-  margin-top: -20px;
+  margin-top: 60px;
 }
 
 .classical-text p {
@@ -246,17 +246,18 @@ object-fit: cover;
 /* ///////////////////////////////////////////// */
 /* WORLD MUSIC */
 .world {
-  background-color: rgba(171, 85, 32, 0.774);
+  /* background-color: rgba(171, 85, 32, 0.774); */
+  background-color: rgb(233, 233, 233);
+  padding-top: 50px;
+  padding-bottom: 200px;
 }
 
 .world-music {
   gap: 80px;
   color: rgb(226, 225, 225);
-  padding-top: 80px;
+  padding-top: 120px;
   padding-bottom: 40px;
-  /* color: rgb(195, 195, 195); */
-  /* border:20px solid rgba(22, 22, 22, 0.902); */
-  background-color: rgba(52, 30, 30, 0.913);
+  /* background-color: rgba(52, 30, 30, 0.913); */
 }
 
 .world-music-img img {
@@ -266,6 +267,11 @@ object-fit: cover;
   text-align: justify;
   margin: 0 auto;
 }
+
+.world-music-text {
+  margin-top: 60px;
+}
+
 .video-world {
   margin-top: 65px;
 }

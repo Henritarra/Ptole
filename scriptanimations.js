@@ -8,11 +8,13 @@ const classicImage = document.querySelector(".classical-img");
 const classicText = document.querySelector(".classical-text");
 const classicVideo = document.querySelector(".video-classical");
 const worldSection = document.querySelector(".world");
-const worldPosition = worldSection.getBoundingClientRect();
 const worldImage = document.querySelector(".world-music-img");
 const worldText = document.querySelector(".world-music-text");
 const worldVideo = document.querySelector(".video-world");
-
+const rockSection = document.querySelector(".rock");
+const rockImage = document.querySelector(".rock-img");
+const rockText = document.querySelector(".rock-text");
+const rockVideo = document.querySelector(".video-rock");
 
 // console.log(window);
 
@@ -48,7 +50,7 @@ document.addEventListener("scroll", function() {
 
     ////////////////NEW TECHNIQUE//////////////////
     const screenHeight = window.innerHeight;
-    const newScrollPosition = window.scrollY - window.innerHeight;
+    const newScrollPosition = window.scrollY + window.innerHeight;
 
     ////////////////CLASSIC//////////////////
     const visibilityClassic = 0.3;
@@ -65,8 +67,12 @@ document.addEventListener("scroll", function() {
     
 
     ////////////////WORLD//////////////////
-    const visibilityWorld = 1.5;
-    const whenToChangeWorld = worldPosition.top + screenHeight * visibilityWorld;
+    const worldPosition = worldSection.getBoundingClientRect();
+    const realWorldPositionTop = newScrollPosition -screenHeight + worldPosition.top;
+    const realWorldPositionBottom = newScrollPosition - screenHeight + worldPosition.bottom;
+    const visibilityWorld = 0.05;
+    const whenToChangeWorld = realWorldPositionTop + ((realWorldPositionBottom - realWorldPositionTop) * visibilityWorld);
+
     ///Image
     if(newScrollPosition >= whenToChangeWorld) {
         worldImage.style.transform = `translateY(${Math.min(30, -(whenToChangeWorld - newScrollPosition) * 0.027)}%)`
@@ -76,13 +82,10 @@ document.addEventListener("scroll", function() {
         worldText.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.01)}%)`;
         worldVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
     }
-    
-
     ////////////BACKGROUND//////////////
-    const visibility = 0.5;
-    const whenToChange = worldPosition.top + screenHeight * visibility;
-    if (newScrollPosition >= whenToChange) {
-        let equation = (newScrollPosition - whenToChange) / 1000;
+    // const whenToChange = worldPosition.top + screenHeight * visibility;
+    if (newScrollPosition >= whenToChangeWorld) {
+        let equation = (newScrollPosition - whenToChangeWorld) / 800;
         console.log("Equation", equation);
         // console.log("worldPosition.top", worldPosition.top);
         const [r, g, b] = changeBackgroundColor ( [cor, cor, cor], [52, 30, 30], equation);
@@ -90,6 +93,28 @@ document.addEventListener("scroll", function() {
         backgroundClassic.style.background = "none";
         backgroundClassic.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
     }
+
+
+////////////////ROCK//////////////////
+const rockPosition = rockSection.getBoundingClientRect();
+const rockPositionTop = newScrollPosition - screenHeight + rockPosition.top;
+const rockPositionBottom = newScrollPosition - screenHeight + rockPosition.bottom;
+const visibilityRock = 0.05;
+const whenToChangeRock = rockPositionTop + ((rockPositionBottom - rockPositionTop) * visibilityRock);
+
+if(newScrollPosition >= whenToChangeRock) {
+    ///Image
+    rockImage.style.transform = `translateY(${Math.min(30, -(whenToChangeRock - newScrollPosition) * 0.027)}%)`
+    //Text and Video
+    rockText.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.01)}%)`;
+    // rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.02)}%)`;
+    ////////////BACKGROUND//////////////
+    let equation = (newScrollPosition - whenToChangeRock) / 800;
+    console.log("Equation", equation);
+    const [r, g, b] = changeBackgroundColor ( [52, 30, 30], [90, 85, 92], equation);
+    worldSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
+    rockSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
+}
 
 })
 

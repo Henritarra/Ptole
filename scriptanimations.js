@@ -19,6 +19,11 @@ const experimentalSection = document.querySelector(".experimental");
 const experimentalImage = document.querySelector(".experimental-img");
 const experimentalText = document.querySelector(".experimental-text");
 const experimentalVideo = document.querySelector(".video-experimental");
+const corClassic = [233, 233, 233];
+const corWorld = [52, 30, 30];
+const corRock = [90, 85, 92];
+const corExperimental = [218, 215, 247];
+
 
 // console.log(window);
 
@@ -30,7 +35,7 @@ document.addEventListener("scroll", function() {
     shapeOne.style.transform = `translateX(${newMargin}px)`
     shapeTwo.style.transform = `translateX(${newMargin}px)`;
     shapeThree.style.clipPath = `polygon(${50 - (0.05 * -newMargin)}% 0%, 100% 0%, 100% 100%, ${50 - (0.05 * -newMargin)}% 100%)`;
-    // SET COLOT FOR CLASSICAL AND WORLD MUSIC TRANSITION
+    // SET COLOR FOR CLASSICAL AND WORLD MUSIC TRANSITION
     const cor = 230;
     
     if (scrollPosition >= 400) {
@@ -44,13 +49,13 @@ document.addEventListener("scroll", function() {
         shapeTwo.style.background = `linear-gradient(to left,rgb(105, 11, 1) 0%, rgb(${Math.min(cor, transy)}, ${Math.min(cor, transy)}, ${Math.min(cor, transy)}) ${transyPerc}%)`;
     }
 
+    ////////////////////////////////////////////////////ANTIGO//////////////////////////////
     if (scrollPosition >= 400) {
         let transyImg = 0 + ((scrollPosition - 400) / 400) * 50;
         classicImage.style.filter = `brightness(${Math.min(100, transyImg)}%)`;
-        backgroundClassic.style.paddingTop = `${Math.min(1050, (50 + ((scrollPosition - 400) / 400) * 160))}px`;
-        // classicImage.style.paddingTop = `900px`;
-
+        backgroundClassic.style.paddingTop = `${Math.min(1150, (50 + ((scrollPosition - 400) / 400) * 80))}px`;
     }
+
 
     ////////////////NEW TECHNIQUE//////////////////
     const screenHeight = window.innerHeight;
@@ -92,10 +97,10 @@ document.addEventListener("scroll", function() {
         let equation = (newScrollPosition - whenToChangeWorld) / 800;
         console.log("Equation", equation);
         // console.log("worldPosition.top", worldPosition.top);
-        const [r, g, b] = changeBackgroundColor ( [cor, cor, cor], [52, 30, 30], equation);
-        worldSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
+        const [r, g, b] = changeBackgroundColor ( [cor, cor, cor], corWorld, equation);
+        worldSection.style.backgroundColor = `rgb(${Math.max(corWorld[0], r)}, ${Math.max(corWorld[1], g)}, ${Math.max(corWorld[2], b)})`;
         backgroundClassic.style.background = "none";
-        backgroundClassic.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
+        backgroundClassic.style.backgroundColor = `rgb(${Math.max(corWorld[0], r)}, ${Math.max(corWorld[1], g)}, ${Math.max(corWorld[2], b)})`;
     }
 
 
@@ -116,9 +121,9 @@ if(newScrollPosition >= whenToChangeRock) {
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeRock) / 800;
     console.log("Equation", equation);
-    const [r, g, b] = changeBackgroundColor ( [52, 30, 30], [90, 85, 92], equation);
-    worldSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
-    rockSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
+    const [r, g, b] = changeBackgroundColor (corWorld, corRock, equation);
+    worldSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 
@@ -139,7 +144,7 @@ if(newScrollPosition >= whenToChangeExperimental) {
     let equation = (newScrollPosition - whenToChangeExperimental) / 800;
     console.log("Equation", equation);
     const [r, g, b] = changeBackgroundColor ( [90, 85, 92], [218, 215, 247], equation);
-    rockSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
+    rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     experimentalSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
 }
 

@@ -15,6 +15,10 @@ const rockSection = document.querySelector(".rock");
 const rockImage = document.querySelector(".rock-img");
 const rockText = document.querySelector(".rock-text");
 const rockVideo = document.querySelector(".video-rock");
+const experimentalSection = document.querySelector(".experimental");
+const experimentalImage = document.querySelector(".experimental-img");
+const experimentalText = document.querySelector(".experimental-text");
+const experimentalVideo = document.querySelector(".video-experimental");
 
 // console.log(window);
 
@@ -107,6 +111,7 @@ if(newScrollPosition >= whenToChangeRock) {
     rockImage.style.transform = `translateY(${Math.min(30, -(whenToChangeRock - newScrollPosition) * 0.027)}%)`
     //Text and Video
     rockText.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.01)}%)`;
+    rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
     // rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.02)}%)`;
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeRock) / 800;
@@ -115,6 +120,29 @@ if(newScrollPosition >= whenToChangeRock) {
     worldSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
     rockSection.style.backgroundColor = `rgb(${Math.max(52, r)}, ${Math.max(30, g)}, ${Math.max(30, b)})`;
 }
+
+
+////////////////EXPERIMENTAL//////////////////
+const experimentalPosition = experimentalSection.getBoundingClientRect();
+const experimentalPositionTop = newScrollPosition - screenHeight + experimentalPosition.top;
+const experimentalPositionBottom = newScrollPosition - screenHeight + experimentalPosition.bottom;
+const visibilityExperimental = 0.05;
+const whenToChangeExperimental = experimentalPositionTop + ((experimentalPositionBottom - experimentalPositionTop) * visibilityExperimental);
+
+if(newScrollPosition >= whenToChangeExperimental) {
+    ///Image
+    experimentalImage.style.transform = `translateY(${Math.min(30, -(whenToChangeExperimental - newScrollPosition) * 0.027)}%)`
+    //Text and Video
+    experimentalText.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.01)}%)`;
+    experimentalVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.02)}%)`;
+    ////////////BACKGROUND//////////////
+    let equation = (newScrollPosition - whenToChangeExperimental) / 800;
+    console.log("Equation", equation);
+    const [r, g, b] = changeBackgroundColor ( [90, 85, 92], [218, 215, 247], equation);
+    rockSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
+    experimentalSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
+}
+
 
 })
 

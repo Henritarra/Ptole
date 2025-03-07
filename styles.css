@@ -139,7 +139,8 @@ nav {
   max-width: 320px;
   margin-top: -25px;
   mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.5) , black);
-  /* transform: rotate3d(1, 1, 0, 20deg); */
+  /* transform: rotate3d(0, 0, 1, -20deg) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, -10deg); */
+  /* transform: rotate3d(1, 0, 0, 20deg); */
 }
 
 nav a {
@@ -291,7 +292,7 @@ object-fit: cover;
 .rock {
   background-color: rgb(52, 30, 30);
   padding-top: 100px;
-  padding-bottom: 140px;
+  padding-bottom: 240px;
   color: white;
 }
 
@@ -299,8 +300,8 @@ object-fit: cover;
 /* EXPERIMENTAL */
 .experimental {
   background-color: rgb(218, 215, 247);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 100px;
+  padding-bottom: 240px;
   color: black;
 }
 

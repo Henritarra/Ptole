@@ -138,7 +138,7 @@ nav {
   z-index: 999;
   max-width: 320px;
   margin-top: -25px;
-  mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.5) , black);
+  /* mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.5) , black); */
   /* transform: rotate3d(0, 0, 1, -20deg) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, -10deg); */
   /* transform: rotate3d(1, 0, 0, 20deg); */
 }
@@ -308,26 +308,46 @@ object-fit: cover;
 /* ///////////////////////////////////////////// */
 /* UPCOMING CONCERTS */
 .upcoming-concerts {
-  padding: 40px;
-  color: black;
+  padding: 40px 40px 100px 40px;
+  /* color: black; */
+
 }
+
+.upcoming-concerts .container {
+  gap: 3px;
+}
+
 .upcoming-concerts > h2 {
   display: block;
   font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 30px;
 }
 .upcoming-concerts > div {
   max-width: 800px;
 }
 
 .concert-box {
+  position:relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 53px;
-  outline: 2px solid black;
+  /* outline: 2px solid black; */
   padding: 25px 40px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
+}
+
+.concert-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+  transform: skew(20deg);
+  z-index: -1;
 }
 
 .day {
@@ -348,4 +368,53 @@ font-size: 1.1rem;
   text-decoration: none;
   color: black;
   font-size: 1.3rem;
+}
+
+/* ///////// Biography ///////////  */
+
+.biography > h2 {
+  display: block;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.biography p {
+  padding-bottom: 12px;
+  text-align: justify;
+}
+
+.biography {
+  padding-bottom: 100px;
+}
+
+/* //////////  CONTACT ///////////// */
+
+.contact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 40px 0 80px 0;
+  background-color: rgb(46, 42, 42);
+  color: white;
+}
+
+.social, .listen, .support {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact a {
+  text-decoration: none;
+  color: white;
+}
+
+.contact a:hover {
+  color: rgb(191, 191, 191);
+}
+
+.contact h4 {
+  font-size: 1.2rem;
+  padding-bottom: 12px;
 }

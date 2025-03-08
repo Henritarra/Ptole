@@ -24,7 +24,6 @@ const corWorld = [52, 30, 30];
 const corRock = [90, 85, 92];
 const corExperimental = [218, 215, 247];
 
-
 // console.log(window);
 
 document.addEventListener("scroll", function() {

@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <div class="front-page">
+    <div class="front-page" id="home">
 
         <div class="shapes shape1"></div>
         <div class="shapes shape2"></div>
@@ -21,13 +21,13 @@
                      <img src="Photos/name_logo.png" alt="Logo of Ptolemaios Armaos, just an image of the styled name">
                 </div>
                 <div class="menu">
-                    <a href="" class="home">Home</a>
-                    <a href="" class="music">Music</a>
-                    <a href="" class="concerts">Upcoming Concerts</a>
+                    <a href="#home" class="home">Home</a>
+                    <a href="#music" class="music">Music</a>
+                    <a href="#concerts" class="concerts-menu">Upcoming Concerts</a>
                     <a href="" class="discography">Discography</a>
                     <a href="" class="shop">Shop</a>
-                    <a href="" class="biography">Biography</a>
-                    <a href="" class="contact">Contact</a>
+                    <a href="#biography" class="biography-menu">Biography</a>
+                    <a href="#contact" class="contact-menu">Contact</a>
                 </div>
             </div>
         </nav>
@@ -36,13 +36,13 @@
         <main>
             <img class="main-photo" src="Photos/main.jpg" alt="Profile Picture of Ptolemaios Armaos Without the Guitar">
             <p class="main-bio"><span class="accent">Ptolemaios Armaos</span> is a guitarist, multi-instrumentalist, arranger and composer. 
-                He composes and arranges works for guitar and wider musical ensembles while shaping a personal musical style by mixing different musical genres, like:
+                He composes and arranges works for guitar and wider musical ensembles while shaping a personal musical style by mixing different musical genres.
             </p>
         </main>
        
     </div>
     
-    <div class="gradient classic">
+    <div class="gradient classic" id="music">
     <div class="classical container">
         <div class="classical-img">
             <img src="Photos/classical.jpg" alt="Image of Ptolemaios playing the Classical Guitar">
@@ -86,10 +86,10 @@
             <div class="rock-text">
                 <h3>Rock, Funk, Blues</h3>
                 <p>
-                    The teenager will live on forever! Some of the styles that have marked most of the people in the western world, specially through our school years are a constant source of inspiration for Armaos’ music.
+                    The teenager will live on forever! Some of the styles that have marked most of the people in the western world, specially through school years are a constant source of inspiration for Armaos’ music.
                 </p>
                 <div class="videos video-rock">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=dBHhQa8Dlx0-By2H&amp;list=PLpGulaypPoa5Tw3BFlrCxwNSSVsgxRgHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="500" height="280" src="https://www.youtube.com/embed/videoseries?si=dBHhQa8Dlx0-By2H&amp;list=PLpGulaypPoa5Tw3BFlrCxwNSSVsgxRgHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -99,10 +99,10 @@
             <div class="experimental-text">
                 <h3>Experimental</h3>
                 <p>
-                    Through his years in Cologne Ptolemaios has dived into the experimental “new” music world, mainly with the Cologne guitar quartet, where he got the opportunity to get to know numerous techniques and sounds on the guitar and other instruments. 
+                    Through his years in Cologne, Ptolemaios has dived into the experimental “new” music world, mainly with the Cologne Guitar Quartet, where he got the opportunity to get to know numerous techniques and sounds on the guitar and other instruments. 
                 </p>
                 <div class="videos video-experimental">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=mTe3mmfJzwtmMo6C&amp;list=PLpGulaypPoa6TFRlH0dVr5_Tmj3ZHVnxR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="500" height="280" src="https://www.youtube.com/embed/videoseries?si=mTe3mmfJzwtmMo6C&amp;list=PLpGulaypPoa6TFRlH0dVr5_Tmj3ZHVnxR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="experimental-img">
@@ -110,9 +110,17 @@
             </div>
         </div>
     </div>
-    <div class="upcoming-concerts">
-    <h2>Concerts</h2>
+    <div class="upcoming-concerts" id="concerts">
+    <h2>Upcoming Concerts</h2>
     <div class="container">
+        <div class="concert-box">
+            <div class="date">
+                <p class="day">21</p>
+                <p class="month">SET</p>
+            </div>
+            <div class="concert-description">This is the concert's description. It will be an amazing concert! Don't miss it.</div>
+            <a href="https://cologneguitarquartet.com" class="concert-link">Link</a>
+        </div>
         <div class="concert-box">
             <div class="date">
                 <p class="day">21</p>
@@ -125,8 +133,42 @@
 </div>
     <div class="discography"></div>
     <div class="shop"></div>
-    <div class="biography"></div>
-    <div class="contact"></div>
+    <div class="container">
+    <div class="biography" id="biography">
+        <h2>Biography</h2>
+        <p class="bio-text">
+            Ptolemaios Armaos is a guitarist, multi-instrumentalist, arranger and composer. 
+He composes and arranges works for guitar and wider musical ensembles while shaping a personal musical style by mixing different musical genres: rock, experimental classical music, traditional music and utilizing a variety of musical instruments.
+        <p> <p class="bio-text-right">
+Ptolemaios Armaos (Athens 1993), holds a degree in Classical Guitar (Athens Conservatory) with Prof. Elena Papandreou as well as a bachelor’s and Master’s degree (with Prof. Roberto Aussel) at the Cologne University of Music and Dance and a Master's Degree in chamber music (with Prof. Hans-Werner Huppertz). During his studies he has been granted scholarships from the Achillopoulion Foundation and the Onassis Foundation. He has received awards and distinctions in international competitions as a soloist (Greece, Germany, Serbia etc.) and with groups, like: the Cologne Guitar Quartet (1st prize in interpretation of modern music in Karlsruhe in 2015), and the Armaos Rastani duo (Creole World Music).
+    <p> <p>
+He operates professionally within and outside of Europe collaborating with prestigious musicians and orchestras. As a solo artist he has released several singles of various music styles. With the Cologne Guitar Quartet he has released 2 CDs: "Phasma" with works by contemporary composers (Feliu Gasull, G. F. Haas, Mayako Kubo) and "Routes", which presents songs from different cultures.
+
+        </p>
+    </div>
+</div>
+    <div class="container-contact">
+        <div class="contact" id="contact">
+            <div class="social">
+            <h4>Social Media</h4>
+            <a href="https://www.instagram.com/ptolemaiosarmaos/" class="instagram">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=100090706607292" class="facebook">Facebook</a>
+            <a href="https://twitter.com/PtolemaiosArma1" class="twitter">Twitter</a>
+        </div>
+        <div class="listen">
+            <h4>Listen</h4>
+                <a href="https://www.youtube.com/user/armaosptolemaios" class="youtube">Youtube</a>
+                <a href="https://open.spotify.com/artist/3KLL2fBUxj3OjqHOoJuUK7?si=SeawsodGTNmQOhIg78SvZg" class="spotify">Spotify</a>
+                <a href="" class="soundcloud">Soundcloud</a>
+                <a href="https://ptolemaiosarmaosmusic.bandcamp.com/" class="bandcamp">Bandcamp</a>
+        </div>
+            <div class="support">
+            <h4>Support Me</h4>
+            <a href="https://www.paypal.com" class="donate">Donate</a>
+            <a href="https://www.patreon.com/PtolemaiosArmaos" class="patreon">Patreon</a>
+        </div>
+        </div>
+    </div>
 
 
 

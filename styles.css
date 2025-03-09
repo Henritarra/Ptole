@@ -308,15 +308,13 @@ object-fit: cover;
 /* ///////////////////////////////////////////// */
 /* UPCOMING CONCERTS */
 .upcoming-concerts {
+  background-color: white;
   padding: 40px 40px 100px 40px;
   /* color: black; */
-
 }
-
 .upcoming-concerts .container {
-  gap: 3px;
+  gap: 2px;
 }
-
 .upcoming-concerts > h2 {
   display: block;
   font-size: 2.5rem;
@@ -326,19 +324,34 @@ object-fit: cover;
 .upcoming-concerts > div {
   max-width: 800px;
 }
-
 .concert-box {
   position:relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 53px;
-  /* outline: 2px solid black; */
+  outline: 2px solid black;
   padding: 25px 40px;
-  /* border-radius: 50px; */
+  border-radius: 100px;
+  opacity: 0;
+}
+.concert-box.visible {
+  opacity: 1;
+  animation: concertsLeft 1s linear forwards;
 }
 
-.concert-box::before {
+@keyframes concertsLeft {
+  0% {
+    transform: translateX(-20vw);
+    opacity: 0;
+  }
+  100% {
+    /* transform: translateX(0); */
+    opacity: 1;
+  }
+}
+
+/* .concert-box::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -348,7 +361,7 @@ object-fit: cover;
   border: 3px solid black;
   transform: skew(20deg);
   z-index: -1;
-}
+} */
 
 .day {
   font-size: 2.25rem;
@@ -417,4 +430,29 @@ font-size: 1.1rem;
 .contact h4 {
   font-size: 1.2rem;
   padding-bottom: 12px;
+}
+
+.email {
+  translate: 0px 28px;
+  font-size: 1rem;
+}
+
+.email:hover {
+  cursor: pointer;
+}
+
+.copy-me {
+  position: absolute;
+  max-width: none;
+  display:inline;
+  translate: 190px 128px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px;
+  color: black;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }

@@ -28,7 +28,7 @@ const corExperimental = [218, 215, 247];
 
 document.addEventListener("scroll", function() {
     const scrollPosition = window.scrollY;
-    console.log("Scroll Position:", scrollPosition);
+    // console.log("Scroll Position:", scrollPosition);
     let newMargin = Math.min(0, -scrollPosition / 2);
     // shapeOne.style.marginLeft = `${newMargin}px`;
     shapeOne.style.transform = `translateX(${newMargin}px)`
@@ -94,7 +94,7 @@ document.addEventListener("scroll", function() {
     // const whenToChange = worldPosition.top + screenHeight * visibility;
     if (newScrollPosition >= whenToChangeWorld) {
         let equation = (newScrollPosition - whenToChangeWorld) / 800;
-        console.log("Equation", equation);
+        // console.log("Equation", equation);
         // console.log("worldPosition.top", worldPosition.top);
         const [r, g, b] = changeBackgroundColor ( [cor, cor, cor], corWorld, equation);
         worldSection.style.backgroundColor = `rgb(${Math.max(corWorld[0], r)}, ${Math.max(corWorld[1], g)}, ${Math.max(corWorld[2], b)})`;
@@ -119,7 +119,7 @@ if(newScrollPosition >= whenToChangeRock) {
     // rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.02)}%)`;
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeRock) / 800;
-    console.log("Equation", equation);
+    // console.log("Equation", equation);
     const [r, g, b] = changeBackgroundColor (corWorld, corRock, equation);
     worldSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
@@ -141,11 +141,30 @@ if(newScrollPosition >= whenToChangeExperimental) {
     experimentalVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.02)}%)`;
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeExperimental) / 800;
-    console.log("Equation", equation);
+    // console.log("Equation", equation);
     const [r, g, b] = changeBackgroundColor ( [90, 85, 92], [218, 215, 247], equation);
     rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     experimentalSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
 }
+
+
+////////////////UPCOMING CONCERTS//////////////////
+const elements = document.querySelectorAll(".concert-box");
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.8 });
+
+elements.forEach(element => observer.observe(element));
+
+
+
+
 
 
 })
@@ -153,10 +172,31 @@ if(newScrollPosition >= whenToChangeExperimental) {
 function changeBackgroundColor (startColor, endColor, factor) {
     return startColor.map((c, i) => Math.round(c + factor * (endColor[i] - c)));
 }
-// let visibility = Math.max(0, Math.min(1, (windowHeight - worldPosition.top) / windowHeight));
 
-// function interpolateColor(start, end, factor) {
-//     return start.map((c, i) => Math.round(c + factor * (end[i] - c)));
-// }
 
-// IntersectionObserver
+
+
+
+
+
+/////////////////COPY EMAIL///////////////
+const emailP = document.querySelector(".email");
+const emailCopy = document.querySelector(".copy-me");
+
+emailP.addEventListener("mouseenter", function (e) {
+    emailCopy.classList.remove("hidden");
+});
+emailP.addEventListener("mouseleave", function () {
+    emailCopy.classList.add("hidden");
+});
+
+emailP.addEventListener("click", async function () {
+    emailCopy.innerHTML = "Copied!";
+    const textToCopy = emailP.textContent;
+    await navigator.clipboard.writeText(textToCopy);
+    emailCopy.classList.remove("hidden");
+    setTimeout(function () {
+        emailCopy.classList.add("hidden");
+        emailCopy.innerHTML = "Copy Me!";
+    }, 3000);
+});

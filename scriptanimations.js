@@ -3,7 +3,6 @@ const shapeOne = document.querySelector(".shape1");
 const shapeTwo = document.querySelector(".shape2");
 const shapeThree = document.querySelector(".shape3");
 const backgroundClassic = document.querySelector(".classic");
-const classicPosition = backgroundClassic.getBoundingClientRect();
 const classicImage = document.querySelector(".classical-img");
 const classicText = document.querySelector(".classical-text");
 const classicVideo = document.querySelector(".video-classical");
@@ -25,14 +24,21 @@ const corRock = [90, 85, 92];
 const corExperimental = [218, 215, 247];
 
 // console.log(window);
+if (window.innerWidth < 1120) {
+    shapeOne.style.clipPath = "polygon(0% 0%, 25% 0%, 10% 50%, 25% 100%, 0% 100% )";
+    shapeTwo.style.clipPath = "polygon(50% 0%, 35% 60%, 50% 100%, 85% 100%, 60% 0%)";
+
+}
 
 document.addEventListener("scroll", function() {
     const scrollPosition = window.scrollY;
     // console.log("Scroll Position:", scrollPosition);
     let newMargin = Math.min(0, -scrollPosition / 2);
     // shapeOne.style.marginLeft = `${newMargin}px`;
+   
     shapeOne.style.transform = `translateX(${newMargin}px)`
     shapeTwo.style.transform = `translateX(${newMargin}px)`;
+    ///////////Não me lembro o que é que faz... Comentei-o.
     shapeThree.style.clipPath = `polygon(${50 - (0.05 * -newMargin)}% 0%, 100% 0%, 100% 100%, ${50 - (0.05 * -newMargin)}% 100%)`;
     // SET COLOR FOR CLASSICAL AND WORLD MUSIC TRANSITION
     const cor = 230;
@@ -52,7 +58,7 @@ document.addEventListener("scroll", function() {
     if (scrollPosition >= 400) {
         let transyImg = 0 + ((scrollPosition - 400) / 400) * 50;
         classicImage.style.filter = `brightness(${Math.min(100, transyImg)}%)`;
-        backgroundClassic.style.paddingTop = `${Math.min(1150, (50 + ((scrollPosition - 400) / 400) * 80))}px`;
+        // backgroundClassic.style.paddingTop = `${Math.min(1150, (50 + ((scrollPosition - 400) / 400) * 80))}px`;
     }
 
 
@@ -61,16 +67,19 @@ document.addEventListener("scroll", function() {
     const newScrollPosition = window.scrollY + window.innerHeight;
 
     ////////////////CLASSIC//////////////////
-    const visibilityClassic = 0.3;
-    const whenToChangeClassic = classicPosition.top + screenHeight * visibilityClassic;
-    ////Image
-    if(newScrollPosition >= whenToChangeClassic) {
-        classicImage.style.transform = `translateY(${Math.min(30, -(whenToChangeClassic - newScrollPosition) * 0.027)}%)`
-    }
-    ////Text and Video
-    if(newScrollPosition >= whenToChangeClassic) {
-        classicText.style.transform = `translateY(${Math.min(20, -(whenToChangeClassic - newScrollPosition) * 0.01)}%)`;
-        classicVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeClassic - newScrollPosition) * 0.02)}%)`;
+    const classicPosition = backgroundClassic.getBoundingClientRect();
+    const visibilityClassic = 0.2;
+    const classicPositionTop = newScrollPosition - screenHeight + classicPosition.top;
+    const classicPositionBottom = newScrollPosition - screenHeight + classicPosition.bottom;
+    const whenToChangeClassic = classicPositionTop + ((classicPositionTop - classicPositionBottom) * visibilityClassic);
+    
+    if (window.innerWidth >= 1120) {
+        ////Image, Text and Video
+        if(newScrollPosition >= whenToChangeClassic) {
+            classicImage.style.transform = `translateY(${Math.min(60, -(whenToChangeClassic - newScrollPosition) * 0.02)}%)`
+            classicText.style.transform = `translateY(${Math.min(30, -(whenToChangeClassic - newScrollPosition) * 0.009)}%)`;
+            classicVideo.style.transform = `translateY(${Math.min(30, -(whenToChangeClassic - newScrollPosition) * 0.008)}%)`;
+        }
     }
     
 
@@ -81,14 +90,13 @@ document.addEventListener("scroll", function() {
     const visibilityWorld = 0.05;
     const whenToChangeWorld = realWorldPositionTop + ((realWorldPositionBottom - realWorldPositionTop) * visibilityWorld);
 
-    ///Image
-    if(newScrollPosition >= whenToChangeWorld) {
-        worldImage.style.transform = `translateY(${Math.min(30, -(whenToChangeWorld - newScrollPosition) * 0.027)}%)`
-    }
-    //Text and Video
-    if(newScrollPosition >= whenToChangeWorld) {
-        worldText.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.01)}%)`;
-        worldVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
+    //Image, Text and Video
+    if (window.innerWidth >= 1120) {
+        if(newScrollPosition >= whenToChangeWorld) {
+            worldImage.style.transform = `translateY(${Math.min(30, -(whenToChangeWorld - newScrollPosition) * 0.027)}%)`
+            worldText.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.01)}%)`;
+            worldVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
+        }
     }
     ////////////BACKGROUND//////////////
     // const whenToChange = worldPosition.top + screenHeight * visibility;
@@ -111,15 +119,13 @@ const visibilityRock = 0.05;
 const whenToChangeRock = rockPositionTop + ((rockPositionBottom - rockPositionTop) * visibilityRock);
 
 if(newScrollPosition >= whenToChangeRock) {
-    ///Image
-    rockImage.style.transform = `translateY(${Math.min(30, -(whenToChangeRock - newScrollPosition) * 0.027)}%)`
-    //Text and Video
-    rockText.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.01)}%)`;
-    rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
-    // rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.02)}%)`;
+    if (window.innerWidth >= 1120) {
+        rockImage.style.transform = `translateY(${Math.min(30, -(whenToChangeRock - newScrollPosition) * 0.027)}%)`
+        rockText.style.transform = `translateY(${Math.min(20, -(whenToChangeRock - newScrollPosition) * 0.01)}%)`;
+        rockVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeWorld - newScrollPosition) * 0.02)}%)`;
+    }
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeRock) / 800;
-    // console.log("Equation", equation);
     const [r, g, b] = changeBackgroundColor (corWorld, corRock, equation);
     worldSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
@@ -134,11 +140,12 @@ const visibilityExperimental = 0.05;
 const whenToChangeExperimental = experimentalPositionTop + ((experimentalPositionBottom - experimentalPositionTop) * visibilityExperimental);
 
 if(newScrollPosition >= whenToChangeExperimental) {
-    ///Image
-    experimentalImage.style.transform = `translateY(${Math.min(30, -(whenToChangeExperimental - newScrollPosition) * 0.027)}%)`
-    //Text and Video
-    experimentalText.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.01)}%)`;
-    experimentalVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.02)}%)`;
+   
+    if (window.innerWidth >= 1120) {
+        experimentalImage.style.transform = `translateY(${Math.min(30, -(whenToChangeExperimental - newScrollPosition) * 0.027)}%)`
+        experimentalText.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.01)}%)`;
+        experimentalVideo.style.transform = `translateY(${Math.min(20, -(whenToChangeExperimental - newScrollPosition) * 0.02)}%)`;
+    }
     ////////////BACKGROUND//////////////
     let equation = (newScrollPosition - whenToChangeExperimental) / 800;
     // console.log("Equation", equation);
@@ -146,25 +153,7 @@ if(newScrollPosition >= whenToChangeExperimental) {
     rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     experimentalSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
 }
-
-
 ////////////////UPCOMING CONCERTS//////////////////
-const elements = document.querySelectorAll(".concert-box");
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.8 });
-
-elements.forEach(element => observer.observe(element));
-
-
-
-
 
 
 })
@@ -173,10 +162,44 @@ function changeBackgroundColor (startColor, endColor, factor) {
     return startColor.map((c, i) => Math.round(c + factor * (endColor[i] - c)));
 }
 
+const elements = document.querySelectorAll(".concert-box");
+const elements2 = document.querySelectorAll(".biography p");
 
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.8 });
 
+elements.forEach(element => observer.observe(element));
+elements2.forEach(element => observer.observe(element));
 
-
+//////////////Menu/////////////
+document.querySelectorAll('.menu a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            if (targetElement.id == "music") {
+                console.log("It is Music!!!!");
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end',
+                });
+            }
+            else {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                }); 
+            }
+        }
+    });
+});
 
 
 /////////////////COPY EMAIL///////////////

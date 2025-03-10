@@ -532,6 +532,9 @@ font-size: 1.1rem;
     position: relative;
   }
 
+  .title img {
+    max-width: 270px;
+  }
   .main-photo {
     align-self: start;
   }

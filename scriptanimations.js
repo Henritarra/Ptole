@@ -2,6 +2,7 @@
 const shapeOne = document.querySelector(".shape1");
 const shapeTwo = document.querySelector(".shape2");
 const shapeThree = document.querySelector(".shape3");
+const menu = document.querySelector(".menu");
 const backgroundClassic = document.querySelector(".classic");
 const classicImage = document.querySelector(".classical-img");
 const classicText = document.querySelector(".classical-text");
@@ -26,9 +27,14 @@ const corExperimental = [218, 215, 247];
 // console.log(window);
 if (window.innerWidth < 1120) {
     shapeOne.style.clipPath = "polygon(0% 0%, 25% 0%, 10% 50%, 25% 100%, 0% 100% )";
-    shapeTwo.style.clipPath = "polygon(50% 0%, 35% 60%, 50% 100%, 85% 100%, 60% 0%)";
+    shapeTwo.style.clipPath = "polygon(50% 0%, 35% 60%, 50% 100%, 85% 100%, 85% 0%)";
 
-}
+    ////MENU////
+menu.innerHTML = `<svg class="hamburger" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 10h24a2 2 0 100-4H4a2 2 0 100 4zm24 4H4a2 2 0 100 4h24a2 2 0 100-4zm0 8H4a2 2 0 100 4h24a2 2 0 100-4z"/>
+</svg>`
+
+                            }
 
 document.addEventListener("scroll", function() {
     const scrollPosition = window.scrollY;

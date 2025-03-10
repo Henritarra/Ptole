@@ -158,6 +158,10 @@ nav a {
   margin-top: 10px;
 }
 
+.hamburger {
+  fill:white;
+  margin-right: 30px;
+}
 
 nav a:hover {
   background: linear-gradient(to right,rgba(134, 1, 1, 0.441), rgba(107, 0, 0, 0));
@@ -568,9 +572,9 @@ font-size: 1.1rem;
     max-width: 90%;
   }
 
-  .menu {
+  /* .menu {
     display: none;
-  }
+  } */
 
   .contact {
     grid-template-columns: 1fr; /* 1 column */
@@ -578,6 +582,11 @@ font-size: 1.1rem;
     gap: 20px;
     justify-items: start;
     padding-left: 35%;
+  }
+
+  .contact h4 {
+    padding-bottom: 2px;
+    padding-top: 5px;
   }
 
   .email {

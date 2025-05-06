@@ -14,19 +14,40 @@ const concertsDiv = document.querySelector("#concerts-list");
         month: "short"
       }).format(date);
       const day = date.getDate();
+      console.log(date);
+      console.log(month.toUpperCase);
+     
       const html = `
       <div class="concert-box">
             <div class="date">
                 <p class="day">${day}</p>
-                <p class="month">${month.toUpperCase}</p>
+                <p class="month">${month.toUpperCase()}</p>
             </div>
             <div class="concert-description">${concert.description}</div>
             <a href="${concert.link}" class="concert-link">Link</a>
         </div>  
       `;
-      concertsDiv.innerHTML += html;
-    })
+      console.log(html);
+      concertsDiv.insertAdjacentHTML('beforeend', html);
+      // concertsDiv.innerHTML += html;
+    });
+    observeNewConcerts();
 
 }).catch(error => {
     console.error("Fetch Operation Not Working 🦇", error);
 });
+
+function observeNewConcerts() {
+  const newElements = document.querySelectorAll(".concert-box");
+  
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.8 });
+  
+  newElements.forEach(element => observer.observe(element));
+}

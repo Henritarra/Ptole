@@ -185,26 +185,48 @@ elements2.forEach(element => observer.observe(element));
 
 //////////////Menu/////////////
 document.querySelectorAll('.menu a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            if (targetElement.id == "music") {
-                console.log("It is Music!!!!");
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'end',
-                });
+    if (anchor.getAttribute('href').startsWith('#')) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                if (targetId === "music") {
+                    console.log("It is Music!!!!");
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'end',
+                    });
+                }
+                else {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    }); 
+                }
             }
-            else {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                }); 
-            }
-        }
-    });
+        });
+    }
+    // anchor.addEventListener('click', function (e) {
+    //     e.preventDefault();
+    //     const targetId = this.getAttribute('href').substring(1);
+    //     const targetElement = document.getElementById(targetId);
+    //     if (targetElement) {
+    //         if (targetElement.id == "music") {
+    //             console.log("It is Music!!!!");
+    //             targetElement.scrollIntoView({
+    //                 behavior: 'smooth',
+    //                 block: 'end',
+    //             });
+    //         }
+    //         else {
+    //             targetElement.scrollIntoView({
+    //                 behavior: 'smooth',
+    //                 block: 'start',
+    //             }); 
+    //         }
+    //     }
+    // });
 });
 
 
@@ -229,3 +251,5 @@ emailP.addEventListener("click", async function () {
         emailCopy.innerHTML = "Copy Me!";
     }, 3000);
 });
+
+

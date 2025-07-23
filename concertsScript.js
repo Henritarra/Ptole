@@ -23,7 +23,16 @@ const concertsDiv = document.querySelector("#concerts-list");
                 <p class="day">${day}</p>
                 <p class="month">${month.toUpperCase()}</p>
             </div>
+            <div class="concert-middle">
+            <div class="concert-title">${concert.title}</div>
             <div class="concert-description">${concert.description}</div>
+            <div class="concert-timeandlocation">
+              <div class="concert-time">${concert.time}</div>
+              <p>-</p>
+              <div class="concert-location">${concert.location}</div>
+            </div>
+            
+            </div>
             <a href="${concert.link}" class="concert-link">Link</a>
         </div>  
       `;

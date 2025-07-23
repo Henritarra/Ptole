@@ -3,6 +3,14 @@ const shapeOne = document.querySelector(".shape1");
 const shapeTwo = document.querySelector(".shape2");
 const shapeThree = document.querySelector(".shape3");
 const menu = document.querySelector(".menu");
+const frontPage = document.querySelector(".front-page");
+const navDiv = document.querySelector(".nav-div");
+const menuLong = document.querySelector(".menu-long");
+const hamb = document.querySelector(".hamb");
+const overlay = document.getElementById("overlay-hamburguer");
+const menuMobile = document.querySelector(".menu-mobile");
+const menuProjects = document.querySelector(".menu-projects");
+
 const backgroundClassic = document.querySelector(".classic");
 const classicImage = document.querySelector(".classical-img");
 const classicText = document.querySelector(".classical-text");
@@ -24,15 +32,47 @@ const corWorld = [52, 30, 30];
 const corRock = [90, 85, 92];
 const corExperimental = [218, 215, 247];
 
+// Position Fixed of Menu when is not over the main section
+const observy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {navDiv.classList.remove("nav-fix")} 
+        else {navDiv.classList.add("nav-fix")}
+      });
+    },{threshold: 0.1}
+  );
+  observy.observe(frontPage);
+
+
+hamb.addEventListener("click", function () {
+    overlay.classList.toggle("hidden");
+    menuMobile.classList.toggle("hidden");
+})
+
+menuMobile.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dropbtn-mobile")) {
+        console.log("It worked!!");
+        // Put here what you want to do when Projects is clicked
+        menuMobile.classList.toggle("hidden");
+        menuProjects.classList.toggle("hidden");
+        return;
+      }
+    overlay.classList.toggle("hidden");
+    menuMobile.classList.toggle("hidden");
+    console.log(e.target)
+})
+
 // console.log(window);
 if (window.innerWidth < 1120) {
     shapeOne.style.clipPath = "polygon(0% 0%, 25% 0%, 10% 50%, 25% 100%, 0% 100% )";
     shapeTwo.style.clipPath = "polygon(50% 0%, 35% 60%, 50% 100%, 85% 100%, 85% 0%)";
 
     ////MENU////
-menu.innerHTML = `<svg class="hamburger" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 10h24a2 2 0 100-4H4a2 2 0 100 4zm24 4H4a2 2 0 100 4h24a2 2 0 100-4zm0 8H4a2 2 0 100 4h24a2 2 0 100-4z"/>
-</svg>`
+    menuLong.classList.add("hidden");
+    hamb.classList.remove("hidden");
+// menu.innerHTML = `<svg class="hamburger" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+//   <path d="M4 10h24a2 2 0 100-4H4a2 2 0 100 4zm24 4H4a2 2 0 100 4h24a2 2 0 100-4zm0 8H4a2 2 0 100 4h24a2 2 0 100-4z"/>
+// </svg>`
 
                             }
 

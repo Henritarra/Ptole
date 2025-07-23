@@ -9,9 +9,8 @@
     <script defer src="scriptanimations.js"></script>
 </head>
 <body>
-    
-    <div class="front-page" id="home">
 
+    <div class="front-page" id="home">
         <div class="shapes shape1"></div>
         <div class="shapes shape2"></div>
         <div class="shapes shape3"></div>
@@ -21,7 +20,10 @@
                     <h1>Ptolemaios Armaos</h1>
                      <!-- <img src="Photos/name_logo.png" alt="Logo of Ptolemaios Armaos, just an image of the styled name"> -->
                 </div>
-                <div class="menu">
+                <!-- <div class="title-fade-in">
+                    <h1>Ptolemaios Armaos</h1>
+                </div> -->
+                <div class="menu menu-long">
                     <a href="#home" class="home">Home</a>
                     <a href="#music" class="music">Music</a>
                     <div class="dropdown">
@@ -33,13 +35,34 @@
                     </div>
                     <a href="#concerts" class="concerts-menu">Upcoming Concerts</a>
                     <!-- <a href="" class="discography">Discography</a> -->
-                    <a href="https://payhip.com/b/mBifG" class="shop">Shop</a>
+                    <a href="https://payhip.com/PtolemaiosArmaosstore" class="shop">Shop</a>
                     <a href="#biography" class="biography-menu">Biography</a>
                     <a href="#contact" class="contact-menu">Contact</a>
                 </div>
+                <div class="menu hamb hidden">
+                    <svg class="hamburger" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M4 10h24a2 2 0 100-4H4a2 2 0 100 4zm24 4H4a2 2 0 100 4h24a2 2 0 100-4zm0 8H4a2 2 0 100 4h24a2 2 0 100-4z"/></svg>
+                </div>
             </div>
         </nav>
-        
+        <div id="overlay-hamburguer" class="hidden">
+            <div class="menu-mobile hidden">
+                <a href="#home" class="home-mobile">Home</a>
+                <a href="#music" class="music-mobile">Music</a>
+                <a href="#" class="dropbtn-mobile">Projects</a>
+                    
+                <a href="#concerts" class="concerts-menu-mobile">Upcoming Concerts</a>
+                <!-- <a href="" class="discography">Discography</a> -->
+                <a href="https://payhip.com/PtolemaiosArmaosstore" class="shop">Shop</a>
+                <a href="#biography" class="biography-menu-mobile">Biography</a>
+                <a href="#contact" class="contact-menu-mobile">Contact</a>
+            </div>
+            <div class="menu-projects hidden">
+                <a href="#" class="projects-mobile">Projects</a>
+                <a href="https://cologneguitarquartet.com" target="_blank">Cologne Guitar Quartet</a>
+                <a href="https://www.instagram.com/thewiseturtles/" target="_blank">The Wise Turtles</a>
+                                
+            </div>
+        </div>
         <!-- Capa do Website, a primeira coisa a se ver -->
         <main>
             <img class="main-photo" src="Photos/main.jpg" alt="Profile Picture of Ptolemaios Armaos Without the Guitar">
@@ -160,7 +183,8 @@ He operates professionally within and outside of Europe collaborating with prest
             <div class="social">
             <h4>Social Media</h4>
             <a href="https://www.instagram.com/ptolemaiosarmaos/" class="instagram">Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=100090706607292" class="facebook">Facebook</a>
+            <!-- <a href="https://www.facebook.com/profile.php?id=100090706607292" class="facebook">Facebook</a> -->
+            <a href="https://www.facebook.com/ptolemaios.armaos" class="facebook">Facebook</a>
             <a href="https://twitter.com/PtolemaiosArma1" class="twitter">Twitter</a>
         </div>
         <div class="listen">
@@ -172,7 +196,7 @@ He operates professionally within and outside of Europe collaborating with prest
         </div>
             <div class="support">
             <h4>Support Me</h4>
-            <a href="https://payhip.com/b/mBifG" class="donate">Payhip</a>
+            <a href="https://payhip.com/PtolemaiosArmaosstore" class="donate">Payhip</a>
             <a href="https://www.patreon.com/PtolemaiosArmaos" class="patreon">Patreon</a>
             <p class="email">armaos.ptolemaios@gmail.com</p>
             <p class="copy-me hidden">Copy Me!</p>

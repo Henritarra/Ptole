@@ -793,6 +793,10 @@ font-size: 1.1rem;
   cursor: pointer;
 }
 
+.linky:hover {
+  cursor: pointer;
+}
+
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;

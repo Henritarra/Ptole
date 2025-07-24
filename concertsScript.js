@@ -1,5 +1,5 @@
 const concertsDiv = document.querySelector("#concerts-list");
-
+const todaysDate = new Date();
   fetch("https://concerts-mwi2.onrender.com/concerts/ptole").then(res =>{
     if (!res.ok) {
         throw new Error("Network Problem 😢" + res.statusText);
@@ -16,7 +16,10 @@ const concertsDiv = document.querySelector("#concerts-list");
       const day = date.getDate();
       console.log(date);
       console.log(month.toUpperCase);
-     
+     if (date < todaysDate) {
+      return
+     }
+
       const html = `
       <div class="concert-box">
             <div class="date">

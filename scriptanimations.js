@@ -208,11 +208,9 @@ if(newScrollPosition >= whenToChangeExperimental) {
     rockSection.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     experimentalSection.style.backgroundColor = `rgb(${Math.max(90, r)}, ${Math.max(85, g)}, ${Math.max(92, b)})`;
 }
-////////////////UPCOMING CONCERTS//////////////////
-
-
 })
 
+////////////////UPCOMING CONCERTS//////////////////
 function changeBackgroundColor (startColor, endColor, factor) {
     return startColor.map((c, i) => Math.round(c + factor * (endColor[i] - c)));
 }

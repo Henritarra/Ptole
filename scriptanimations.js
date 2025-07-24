@@ -10,7 +10,7 @@ const hamb = document.querySelector(".hamb");
 const overlay = document.getElementById("overlay-hamburguer");
 const menuMobile = document.querySelector(".menu-mobile");
 const menuProjects = document.querySelector(".menu-projects");
-
+const back =  document.querySelector("#back");
 const backgroundClassic = document.querySelector(".classic");
 const classicImage = document.querySelector(".classical-img");
 const classicText = document.querySelector(".classical-text");
@@ -49,9 +49,9 @@ hamb.addEventListener("click", function () {
     menuMobile.classList.toggle("hidden");
 })
 
+// Needs WORK ON THE PROJECTS TAB
 menuMobile.addEventListener("click", function (e) {
     if (e.target.classList.contains("dropbtn-mobile")) {
-        console.log("It worked!!");
         // Put here what you want to do when Projects is clicked
         menuMobile.classList.toggle("hidden");
         menuProjects.classList.toggle("hidden");
@@ -60,6 +60,15 @@ menuMobile.addEventListener("click", function (e) {
     overlay.classList.toggle("hidden");
     menuMobile.classList.toggle("hidden");
     console.log(e.target)
+})
+
+menuProjects.addEventListener("click", function (e) {
+    if (e.target.id = "back") {
+        // Put here what you want to do when Projects is clicked
+        menuMobile.classList.toggle("hidden");
+        menuProjects.classList.toggle("hidden");
+        return;
+      }
 })
 
 // console.log(window);
@@ -224,29 +233,48 @@ elements.forEach(element => observer.observe(element));
 elements2.forEach(element => observer.observe(element));
 
 //////////////Menu/////////////
-document.querySelectorAll('.menu a').forEach(anchor => {
-    if (anchor.getAttribute('href').startsWith('#')) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                if (targetId === "music") {
-                    console.log("It is Music!!!!");
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'end',
-                    });
-                }
-                else {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                    }); 
-                }
-            }
-        });
-    }
+
+document.querySelectorAll('.linky').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent default anchor jump
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+  });
+  });
+
+
+
+// document.querySelectorAll('.menu a').forEach(anchor => {
+//     if (anchor.getAttribute('href').startsWith('#')) {
+//         anchor.addEventListener('click', function (e) {
+//             e.preventDefault();
+//             const targetId = this.getAttribute('href').substring(1);
+//             const targetElement = document.getElementById(targetId);
+//             if (targetElement) {
+//                 if (targetId === "music") {
+//                     console.log("It is Music!!!!");
+//                     targetElement.scrollIntoView({
+//                         behavior: 'smooth',
+//                         block: 'end',
+//                     });
+//                 }
+//                 else {
+//                     targetElement.scrollIntoView({
+//                         behavior: 'smooth',
+//                         block: 'start',
+//                     }); 
+//                 }
+//             }
+//         });
+//     }
+
+
+
+
     // anchor.addEventListener('click', function (e) {
     //     e.preventDefault();
     //     const targetId = this.getAttribute('href').substring(1);
@@ -267,7 +295,7 @@ document.querySelectorAll('.menu a').forEach(anchor => {
     //         }
     //     }
     // });
-});
+// });
 
 
 /////////////////COPY EMAIL///////////////

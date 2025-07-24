@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* html, body {
+  height: 100%;
+  overflow: auto;
+} */
+
 :root {
   --main-background-color: white;
   --primary-color: #1e90ff;
